@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-01c701f454b6def41581de613f63f01cdc95944a.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-b690a03520e716a08909de80781a9ce7822d76b9.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\internal_impl-23.0.1-5ef48870cd55e1b1153c8743c770d057ab5631c4.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-67902a5008823b893a0808babc7519657a118bf4.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\wwiiol\volley\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1e7423138aaadb3813f7282a3817d7fbc88c3d1e">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-11994a9c7cf78c308ad1928f1ea52e98c1c9be81.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ramy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\support-annotations-23.0.1-5c1c28f837c910fae7484a29a6ca8e91b6a27b63.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-056415da80f73bf0c9751dd12c227bddf862655f.jar" />
+    </item>
+    <item
+        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\release\classes-71c7bf1ab458ed27657be088c5c53ed0b281ac78.jar" />
+    </item>
+
+</items>
