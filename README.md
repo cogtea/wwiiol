@@ -2,7 +2,7 @@
 
 Handie Talkie - Unofficial support application build over wiretap services for http://www.battlegroundeurope.net/
 
-![alt tag](https://raw.github.com/GeneralRamy/wwiiol/branch/images/image.gif)
+![alt screenshot](https://raw.githubusercontent.com/GeneralRamy/wwiiol/master/images/image.gif)
 
 Features :
 
