@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="archer.wwiiol" >
+    package="archer.handietalkie" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,12 +10,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="archer.handietalkie.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".views.SplashActivity"
+            android:name="archer.handietalkie.views.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >
             <intent-filter>
@@ -25,17 +25,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.CityActivity"
+            android:name="archer.handietalkie.views.CityActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_city"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="archer.handietalkie.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="archer.handietalkie.MainActivity" />
         </activity>
         <activity
-            android:name=".views.AboutActivity"
+            android:name="archer.handietalkie.views.AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
     </application>

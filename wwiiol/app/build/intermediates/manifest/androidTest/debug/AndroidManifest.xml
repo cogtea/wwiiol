@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="archer.wwiiol.test">
+    package="archer.handietalkie.test">
 
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="archer.wwiiol"
+                     android:targetPackage="archer.handietalkie"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for archer.wwiiol"/>
+                     android:label="Tests for archer.handietalkie"/>
 </manifest>

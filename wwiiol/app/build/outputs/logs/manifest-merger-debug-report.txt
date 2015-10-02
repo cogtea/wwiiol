@@ -2,7 +2,7 @@
 manifest
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:3:5-28
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml
 		INJECTED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -37,7 +37,7 @@ MERGED from [com.android.support:support-v4:23.0.1] D:\myspace\wwiiol\wwiiol\app
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:9:9-43
 	android:theme
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:11:9-40
-activity#archer.wwiiol.MainActivity
+activity#archer.handietalkie.MainActivity
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:12:9-16:47
 	android:screenOrientation
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:15:13-49
@@ -46,15 +46,15 @@ ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:12:9-16:47
 	android:theme
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:16:13-44
 	android:name
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:13:13-41
-activity#archer.wwiiol.views.SplashActivity
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:13:13-60
+activity#archer.handietalkie.views.SplashActivity
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:17:9-26:20
 	android:label
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:19:13-45
 	android:theme
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:20:13-80
 	android:name
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:18:13-49
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:18:13-68
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
@@ -65,30 +65,30 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:24:27-74
-activity#archer.wwiiol.views.CityActivity
+activity#archer.handietalkie.views.CityActivity
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:27:9-36:20
 	android:screenOrientation
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:32:13-49
 	android:label
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:30:13-56
 	android:parentActivityName
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:31:13-55
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:31:13-74
 	android:configChanges
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:29:13-74
 	android:name
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:28:13-47
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:28:13-66
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:33:13-35:49
+ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:33:13-35:68
 	android:value
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:35:17-46
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:35:17-65
 	android:name
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:34:17-63
-activity#archer.wwiiol.views.AboutActivity
+activity#archer.handietalkie.views.AboutActivity
 ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:37:9-40:20
 	android:label
 		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:39:13-57
 	android:name
-		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:38:13-48
+		ADDED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml:38:13-67
 uses-sdk
 INJECTED from D:\myspace\wwiiol\wwiiol\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [wwiiol:volley:unspecified] D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\wwiiol\volley\unspecified\AndroidManifest.xml:7:5-43
