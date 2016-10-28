@@ -7,14 +7,12 @@ public class CaptureModel implements Parcelable {
 
     public static final Creator<CaptureModel> CREATOR = new Creator<CaptureModel>() {
         @Override
-        public CaptureModel createFromParcel(Parcel source) {
-            // TODO Auto-generated method stub
-            return new CaptureModel(source);
+        public CaptureModel createFromParcel(Parcel in) {
+            return new CaptureModel(in);
         }
 
         @Override
         public CaptureModel[] newArray(int size) {
-            // TODO Auto-generated method stub
             return new CaptureModel[size];
         }
     };
@@ -22,25 +20,53 @@ public class CaptureModel implements Parcelable {
     private long at;
     private String facilityId;
     private int from;
+    private int to;
     private String by;
     private String name;
     private String date;
+
     public CaptureModel() {
 
     }
 
-    public CaptureModel(Parcel in) {
-        by = in.readString();
-        at = in.readLong();
+    protected CaptureModel(Parcel in) {
         id = in.readInt();
+        at = in.readLong();
         facilityId = in.readString();
         from = in.readInt();
+        to = in.readInt();
+        by = in.readString();
         name = in.readString();
         date = in.readString();
     }
 
     public static Creator<CaptureModel> getCreator() {
         return CREATOR;
+    }
+
+    public int getTo() {
+        return to;
+    }
+
+    public void setTo(int to) {
+        this.to = to;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeLong(at);
+        dest.writeString(facilityId);
+        dest.writeInt(from);
+        dest.writeInt(to);
+        dest.writeString(by);
+        dest.writeString(name);
+        dest.writeString(date);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public String getName() {
@@ -99,20 +125,4 @@ public class CaptureModel implements Parcelable {
         this.date = date;
     }
 
-    @Override
-    public int describeContents() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(by);
-        dest.writeLong(at);
-        dest.writeInt(id);
-        dest.writeString(facilityId);
-        dest.writeInt(from);
-        dest.writeString(name);
-        dest.writeString(date);
-    }
 }

@@ -2,60 +2,193 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Ramy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-5c1c28f837c910fae7484a29a6ca8e91b6a27b63.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_d3d094149ede9865970820aeeec1b0c9d81e08d4/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-056415da80f73bf0c9751dd12c227bddf862655f.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_e4ce24fd9407df5668435137731e134b3a088831/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-5ef48870cd55e1b1153c8743c770d057ab5631c4.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_1a411c9f2484729ff8783650a4287e3cc40db202/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-67902a5008823b893a0808babc7519657a118bf4.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_9361a71fbb9c0893860c8428d57565e2179aeb9a/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\wwiiol\volley\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="62d7bfef978e3995842686cb60051718b2447904">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-11994a9c7cf78c308ad1928f1ea52e98c1c9be81.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_15efad7428681c6153d6f07badc662650b3bfe3f/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-01c701f454b6def41581de613f63f01cdc95944a.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_762a645ad71daa0ad15ac303315c53e2f1628092/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-b690a03520e716a08909de80781a9ce7822d76b9.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_13e65d60bf7f150803d0e50be2df9a11f77e3dc1/classes.dex" />
     </item>
     <item
-        jar="D:\myspace\wwiiol\wwiiol\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="D:\myspace\wwiiol\wwiiol\app\build\intermediates\pre-dexed\debug\classes-71c7bf1ab458ed27657be088c5c53ed0b281ac78.jar" />
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_e272695e594ea5d81f24eacd841a70234aad4325/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-24.2.1_c742e91e3dc3f9e0ebcaadb7eae47ed6f78742ca/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_259374360f4edad81bb09cbeb6842aa98a0e1e70/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0564cab1580ea0b3ff23a8e739918dd45b255013">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6168f1b237b9a8c4280a9bfc3ed5480f7dea029b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_fa5494a8d720439f7b1a1c1b4e40b7f533904a97/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fb7e3649f5fe3e90e7c0b9a696c3ea673a32a45a">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ad5032fa61edb7ea19ebc0232ee9ca0d3554e83c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_53992ec514370038f1098f9d7c6c5906a711bed0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1487b87b635baaec355c6b7e90dcb9d05f016f18/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_bd89807bcf8bd4a9b34fc7675db7dcd44fa65cff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_2ec643e8a09ba9d1b38ab1801a97e0875a127f5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_2f5e51d241abf0d251f4952f950cfdd578cd1779/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/ramy/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_9934823291277d1a3033108fb766871e2bdff8b6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_0cd09b69e57243ecc93150147a2f2628bf52250e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_32df20f1bbe7567a9e87e1fc71629801245a1031/classes.dex" />
     </item>
 
 </items>

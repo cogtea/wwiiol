@@ -17,9 +17,9 @@
         android:layout_width="0dp"
         android:layout_weight="5"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_small_material"
+        android:textSize="20sp"
         android:textColor="@color/primary_text"
         android:gravity="center"
          />
 
-</LinearLayout><!-- From: file:/D:/myspace/wwiiol/wwiiol/app/src/main/res/layout/list_item.xml -->
+</LinearLayout>

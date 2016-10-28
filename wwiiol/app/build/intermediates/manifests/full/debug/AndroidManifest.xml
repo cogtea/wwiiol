@@ -6,9 +6,12 @@
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
@@ -42,11 +45,44 @@
         </activity>
         <activity
             android:name="archer.handietalkie.views.AboutActivity"
-            android:label="@string/title_activity_about" >
-        </activity>
+            android:label="@string/title_activity_about" />
         <activity
-            android:name="android.support.v7.widget.TestActivity"
-            android:label="RecyclerViewTestActivity" />
+            android:name="archer.handietalkie.views.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="archer.handietalkie.MainActivity"
+            android:theme="@style/AppTheme2" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="archer.handietalkie.MainActivity" />
+        </activity>
+
+        <service android:name="archer.handietalkie.components.sync.AuthenticatorService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <provider
+            android:name="archer.handietalkie.components.sync.StubProvider"
+            android:authorities="archer.handietalkie.components.sync"
+            android:exported="false"
+            android:syncable="true" />
+
+        <service
+            android:name="archer.handietalkie.components.sync.SyncService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
     </application>
 
 </manifest>

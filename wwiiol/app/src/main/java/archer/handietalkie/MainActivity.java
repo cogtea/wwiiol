@@ -1,5 +1,6 @@
 package archer.handietalkie;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -37,17 +38,28 @@ import java.util.HashMap;
 import java.util.List;
 
 import archer.handietalkie.adapters.AoAdapter;
+import archer.handietalkie.components.sync.SyncAdapter;
 import archer.handietalkie.database.DataBaseController;
 import archer.handietalkie.models.AoModel;
 import archer.handietalkie.models.CpModel;
 import archer.handietalkie.views.AboutActivity;
 import archer.handietalkie.views.CityActivity;
+import archer.handietalkie.views.SettingsActivity;
 
 
 public class MainActivity extends AppCompatActivity implements ExpandableListView.OnChildClickListener {
 
+    // Sync interval constants
+    public static final long SECONDS_PER_MINUTE = 60L;
+    public static final long SYNC_INTERVAL_IN_MINUTES = 2L;
+    public static final long SYNC_INTERVAL =
+            SYNC_INTERVAL_IN_MINUTES *
+                    SECONDS_PER_MINUTE;
     private static final String TAG = "MainActivity";
     ArrayList<AoModel> Axis, Allied;
+    // Global variables
+    // A content resolver for accessing the provider
+    ContentResolver mResolver;
     private Toolbar toolbar;
     private CoordinatorLayout coordinatorLayout;
     private TextView status;
@@ -89,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         }
         getServerStatus();
         //
+        SyncAdapter.initializeSyncAdapter(this);
+
+
     }
 
     private void getServerStatus() {
@@ -98,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+
                         // Display the first 500 characters of the response string.
                         try {
                             JSONObject jsonObject = new JSONObject(response);
@@ -114,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                             //
                             if (pop.equals("Average")) {
                                 status.setTextColor(Color.parseColor("#FF6600"));
-                            } else if (pop.equals("Low") || pop.equals("VeryLight")) {
+                            } else if (pop.equals("Low") || pop.equals("Very Light") || pop.equals("Empty")) {
                                 status.setTextColor(Color.RED);
                             } else {
                                 status.setTextColor(Color.GREEN);
@@ -145,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     }
 
     private void getCurrentAo() {
-        String url = "http://web3.wwiionline.com/xmlquery/cps.xml?aos=true";
+        String url = "http://wiretap.wwiionline.com/xmlquery/cps.xml?aos=true";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -175,6 +192,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                                     Axis.add(aos.get(i));
                                 }
                             }
+                            dataBaseController.insertAoCpList(aos);
                             listAdapter.notifyDataSetChanged();
                             //
                         } catch (IOException e) {
@@ -248,6 +266,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         aoModel.setAoId(hcUnit);
         aoModel.setCpId(cityId);
         aoModel.setOwn(Integer.parseInt(own.substring(0, 1)));
+        aoModel.setSide(Integer.parseInt(own.substring(2, 3)));
         parser.nextTag();
         return aoModel;
     }
@@ -290,6 +309,8 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
             return true;
         } else if (id == R.id.action_info) {
             startActivity(new Intent(this, AboutActivity.class));
+        } else if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -304,11 +325,15 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
             ).getCpId());
             intent.putExtra(CityActivity.CITY_NAME, Axis.get(childPosition
             ).getName());
+            intent.putExtra(CityActivity.CITY_OWN, Axis.get(childPosition
+            ).getOwn());
         } else {
             intent.putExtra(CityActivity.CITY_ID, Allied.get(childPosition
             ).getCpId());
             intent.putExtra(CityActivity.CITY_NAME, Allied.get(childPosition
             ).getName());
+            intent.putExtra(CityActivity.CITY_OWN, Allied.get(childPosition
+            ).getOwn());
         }
         startActivity(intent);
         return false;

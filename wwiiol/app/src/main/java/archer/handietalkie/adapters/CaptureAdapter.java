@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import archer.handietalkie.models.CaptureModel;
 import archer.handietalkie.R;
+import archer.handietalkie.models.CaptureModel;
 
 
 public class CaptureAdapter extends RecyclerView.Adapter<CaptureAdapter.ViewHolder> {
@@ -37,13 +37,13 @@ public class CaptureAdapter extends RecyclerView.Adapter<CaptureAdapter.ViewHold
         holder.mName.setText(mDataset.get(position).getBy());
         holder.mDate.setText(mDataset.get(position).getDate());
         holder.mFacility.setText(mDataset.get(position).getName());
-        if (mDataset.get(position).getFrom() == 1) {
+        if (mDataset.get(position).getTo() == 1) {
             holder.mFlag.setImageResource(R.drawable.britain);
-        } else if (mDataset.get(position).getFrom() == 3) {
+        } else if (mDataset.get(position).getTo() == 3) {
             holder.mFlag.setImageResource(R.drawable.france);
-        } else if (mDataset.get(position).getFrom() == 2) {
+        } else if (mDataset.get(position).getTo() == 2) {
             holder.mFlag.setImageResource(R.drawable.unitedstates);
-        } else if (mDataset.get(position).getFrom() == 4) {
+        } else if (mDataset.get(position).getTo() == 4) {
             holder.mFlag.setImageResource(R.drawable.german);
         }
     }

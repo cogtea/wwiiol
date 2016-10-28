@@ -21,23 +21,74 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/abc_action_bar_default_height_material"
-                android:background="@color/primary_dark"
-                android:gravity="center">
+                android:layout_height="wrap_content"
+                android:background="@drawable/army_pattern"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/status_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/snackbar_padding_horizontal" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="Origin"
+                            android:textColor="@color/primary_light" />
+
+                        <ImageView
+                            android:id="@+id/status_image_origin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:padding="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="Own"
+                            android:textColor="@color/primary_light" />
+
+                        <ImageView
+                            android:id="@+id/status_image_own"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:padding="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_marginLeft="@dimen/snackbar_padding_horizontal"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center|left"
-                    android:textColor="@color/secondary_text" />
+                    android:textColor="@color/primary_dark"
+                    android:textSize="30sp" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -74,8 +125,7 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:titleTextColor="@color/secondary_text" />
+            app:titleTextColor="@color/primary_light" />
 
     </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
-<!-- From: file:/D:/myspace/wwiiol/wwiiol/app/src/main/res/layout/activity_city.xml -->

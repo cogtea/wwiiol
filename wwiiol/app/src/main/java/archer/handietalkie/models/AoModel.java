@@ -7,36 +7,58 @@ public class AoModel implements Parcelable {
 
     public static final Creator<AoModel> CREATOR = new Creator<AoModel>() {
         @Override
-        public AoModel createFromParcel(Parcel source) {
-            // TODO Auto-generated method stub
-            return new AoModel(source);
+        public AoModel createFromParcel(Parcel in) {
+            return new AoModel(in);
         }
 
         @Override
         public AoModel[] newArray(int size) {
-            // TODO Auto-generated method stub
             return new AoModel[size];
         }
     };
     private String cpId;
     private int own;
+    private int side;
     private String aoId;
     private String name;
+
 
     public AoModel() {
 
     }
 
-
-    public AoModel(Parcel in) {
+    protected AoModel(Parcel in) {
         cpId = in.readString();
         own = in.readInt();
+        side = in.readInt();
         aoId = in.readString();
         name = in.readString();
     }
 
     public static Creator<AoModel> getCreator() {
         return CREATOR;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(cpId);
+        dest.writeInt(own);
+        dest.writeInt(side);
+        dest.writeString(aoId);
+        dest.writeString(name);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public int getSide() {
+        return side;
+    }
+
+    public void setSide(int side) {
+        this.side = side;
     }
 
     public String getName() {
@@ -71,17 +93,4 @@ public class AoModel implements Parcelable {
         this.aoId = aoId;
     }
 
-    @Override
-    public int describeContents() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(cpId);
-        dest.writeInt(own);
-        dest.writeString(aoId);
-        dest.writeString(name);
-    }
 }

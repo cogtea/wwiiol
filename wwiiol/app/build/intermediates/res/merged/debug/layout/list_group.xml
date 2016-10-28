@@ -12,5 +12,5 @@
         android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textSize="17dp"
-        android:textColor="@color/secondary_text" />
-</LinearLayout><!-- From: file:/D:/myspace/wwiiol/wwiiol/app/src/main/res/layout/list_group.xml -->
+        android:textColor="@color/primary" />
+</LinearLayout>

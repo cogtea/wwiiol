@@ -31,16 +31,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import archer.handietalkie.R;
 import archer.handietalkie.adapters.CaptureAdapter;
 import archer.handietalkie.database.DataBaseController;
 import archer.handietalkie.models.CaptureModel;
 import archer.handietalkie.models.CpModel;
-import archer.handietalkie.R;
 
 public class CityActivity extends AppCompatActivity {
 
     public static final String CITY_NAME = "name";
     public static final String CITY_ID = "cityid";
+    public static final String CITY_OWN = "cityOwn";
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private ArrayList<CaptureModel> myDataset;
@@ -51,7 +52,8 @@ public class CityActivity extends AppCompatActivity {
     private String cityId;
     private String cityName;
     private TextView status;
-    private ImageView statusImage;
+    private ImageView statusImageOrigin, statusImageOwn;
+    private int cityOwn;
 
 
     @Override
@@ -67,7 +69,8 @@ public class CityActivity extends AppCompatActivity {
 
         //
         status = (TextView) findViewById(R.id.status);
-        statusImage = (ImageView) findViewById(R.id.status_image);
+        statusImageOrigin = (ImageView) findViewById(R.id.status_image_origin);
+        statusImageOwn = (ImageView) findViewById(R.id.status_image_own);
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.CoordinatorLayout);
         loading = (LinearLayout) findViewById(R.id.loading);
@@ -83,18 +86,30 @@ public class CityActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null && getIntent().getExtras().getString(CITY_ID) != null) {
             cityId = getIntent().getExtras().getString(CITY_ID);
             cityName = getIntent().getExtras().getString(CITY_NAME);
+            cityOwn = getIntent().getExtras().getInt(CITY_OWN);
+
             getSupportActionBar().setTitle(cityName);
             //
             CpModel cpModel = new DataBaseController(this).getCp(cityId);
             status.setText(cpModel.getName());
             if (cpModel.getOrig() == 1) {
-                statusImage.setImageResource(R.drawable.britain);
+                statusImageOrigin.setImageResource(R.drawable.britain);
             } else if (cpModel.getOrig() == 3) {
-                statusImage.setImageResource(R.drawable.france);
+                statusImageOrigin.setImageResource(R.drawable.france);
             } else if (cpModel.getOrig() == 2) {
-                statusImage.setImageResource(R.drawable.unitedstates);
+                statusImageOrigin.setImageResource(R.drawable.unitedstates);
             } else if (cpModel.getOrig() == 4) {
-                statusImage.setImageResource(R.drawable.german);
+                statusImageOrigin.setImageResource(R.drawable.german);
+            }
+
+            if (cityOwn == 1) {
+                statusImageOwn.setImageResource(R.drawable.britain);
+            } else if (cityOwn == 3) {
+                statusImageOwn.setImageResource(R.drawable.france);
+            } else if (cityOwn == 2) {
+                statusImageOwn.setImageResource(R.drawable.unitedstates);
+            } else if (cityOwn == 4) {
+                statusImageOwn.setImageResource(R.drawable.german);
             }
         }
         //
@@ -103,7 +118,7 @@ public class CityActivity extends AppCompatActivity {
 
     private void getCurrentAo() {
         loading.setVisibility(View.VISIBLE);
-        String url = "http://web3.wwiionline.com/xmlquery/captures.xml?cp=" + cityId;
+        String url = "http://wiretap.wwiionline.com/xmlquery/captures.xml?cp=" + cityId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -198,12 +213,14 @@ public class CityActivity extends AppCompatActivity {
         String fac = parser.getAttributeValue(null, "fac");
         String from = parser.getAttributeValue(null, "from");
         String by = parser.getAttributeValue(null, "by");
+        String to = parser.getAttributeValue(null, "to");
 
         CaptureModel captureModel = new CaptureModel();
         captureModel.setId(Integer.parseInt(id));
         captureModel.setAt(Long.parseLong(at));
         captureModel.setFacilityId(fac);
         captureModel.setFrom(Integer.parseInt(from));
+        captureModel.setTo(Integer.parseInt(to));
         captureModel.setBy(by);
         parser.nextTag();
         return captureModel;

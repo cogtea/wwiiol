@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
-        android:textSize="@dimen/abc_text_size_small_material"
+        android:textSize="20sp"
         android:textColor="@color/primary_light"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/rowText" />
 
-</LinearLayout><!-- From: file:/D:/myspace/wwiiol/wwiiol/app/src/main/res/layout/item_row.xml -->
+</LinearLayout>

@@ -20,28 +20,31 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/abc_action_bar_default_height_material"
-                android:background="@color/primary_dark"
+                android:background="@drawable/army_pattern"
                 android:gravity="center">
 
                 <ImageView
                     android:id="@+id/status_image"
                     android:layout_width="wrap_content"
-                    android:layout_marginLeft="@dimen/snackbar_padding_horizontal"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp" />
 
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_marginLeft="@dimen/snackbar_padding_horizontal"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center|left"
-                    android:textColor="@color/secondary_text" />
+                    android:textColor="@color/secondary_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <ExpandableListView
                 android:id="@+id/list"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/abc_action_bar_default_height_material">
 
             </ExpandableListView>
 
@@ -72,7 +75,7 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:titleTextColor="@color/secondary_text" />
+            app:titleTextColor="@color/primary_light" />
 
     </android.support.design.widget.AppBarLayout>
-</android.support.design.widget.CoordinatorLayout><!-- From: file:/D:/myspace/wwiiol/wwiiol/app/src/main/res/layout/activity_main.xml -->
+</android.support.design.widget.CoordinatorLayout>
