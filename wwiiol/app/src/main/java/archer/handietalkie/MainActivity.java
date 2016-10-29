@@ -4,6 +4,8 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +38,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import archer.handietalkie.adapters.AoAdapter;
 import archer.handietalkie.components.sync.SyncAdapter;
@@ -70,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     private String mAos;
     private ImageView statusImage;
     private LinearLayout loading;
+    private Timer myTimer;
+    private Handler myhandler;
+    private Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +110,29 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         //
         SyncAdapter.initializeSyncAdapter(this);
 
+        myhandler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                getServerStatus();
+                snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
+                snackbar.show();
+                return false;
+            }
+        });
 
+        myTimer = new Timer();
+        int delay = 0;   // delay for 30 sec.
+        int period = 60000;  // repeat every 60 sec.
+        myTimer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                myhandler.sendEmptyMessage(0);
+            }
+        }, delay, period);
     }
 
     private void getServerStatus() {
-        loading.setVisibility(View.VISIBLE);
+        if (Allied.size() == 0 && Axis.size() == 0)
+            loading.setVisibility(View.VISIBLE);
         String url = "http://wiretap.wwiionline.com/json/servers.json";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -150,6 +175,9 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
             public void onErrorResponse(VolleyError error) {
                 Snackbar.make(coordinatorLayout, error.toString(), Snackbar.LENGTH_LONG).show();
                 loading.setVisibility(View.INVISIBLE);
+                if (snackbar != null)
+                    snackbar.dismiss();
+
             }
         });
 
@@ -195,12 +223,18 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                             dataBaseController.insertAoCpList(aos);
                             listAdapter.notifyDataSetChanged();
                             //
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {
                             e.printStackTrace();
                         }
                         loading.setVisibility(View.INVISIBLE);
+                        if (snackbar != null)
+                            snackbar.dismiss();
+
+                        getSupportActionBar().setSubtitle(new java.util.Date().toString());
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -209,6 +243,9 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                 loading.setVisibility(View.INVISIBLE);
                 //
                 getSupportActionBar().setSubtitle(new java.util.Date().toString());
+                if (snackbar != null)
+                    snackbar.dismiss();
+
             }
         });
 
@@ -347,6 +384,10 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 
     @Override
     protected void onPause() {
+        //cancel timer
+        if (myTimer != null)
+            myTimer.cancel();
+
         super.onPause();
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }

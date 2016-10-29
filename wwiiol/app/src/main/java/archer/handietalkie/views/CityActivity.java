@@ -1,6 +1,8 @@
 package archer.handietalkie.views;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +32,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import archer.handietalkie.R;
 import archer.handietalkie.adapters.CaptureAdapter;
@@ -54,6 +58,9 @@ public class CityActivity extends AppCompatActivity {
     private TextView status;
     private ImageView statusImageOrigin, statusImageOwn;
     private int cityOwn;
+    private Handler myhandler;
+    private Snackbar snackbar;
+    private Timer myTimer;
 
 
     @Override
@@ -114,10 +121,30 @@ public class CityActivity extends AppCompatActivity {
         }
         //
         getCurrentAo();
+
+        myhandler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                getCurrentAo();
+                snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
+                snackbar.show();
+                return false;
+            }
+        });
+
+        myTimer = new Timer();
+        int delay = 0;   // delay for 30 sec.
+        int period = 60000;  // repeat every 60 sec.
+        myTimer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                myhandler.sendEmptyMessage(0);
+            }
+        }, delay, period);
     }
 
     private void getCurrentAo() {
-        loading.setVisibility(View.VISIBLE);
+        if (myDataset.size() == 0)
+            loading.setVisibility(View.VISIBLE);
         String url = "http://wiretap.wwiionline.com/xmlquery/captures.xml?cp=" + cityId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -151,6 +178,9 @@ public class CityActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         loading.setVisibility(View.INVISIBLE);
+                        getSupportActionBar().setSubtitle(new java.util.Date().toString());
+                        if (snackbar != null)
+                            snackbar.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -158,6 +188,8 @@ public class CityActivity extends AppCompatActivity {
                 Snackbar.make(coordinatorLayout, error.toString(), Snackbar.LENGTH_LONG).show();
                 loading.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setSubtitle(new java.util.Date().toString());
+                if (snackbar != null)
+                    snackbar.dismiss();
             }
         });
 
@@ -257,6 +289,9 @@ public class CityActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
+        //cancel timer
+        if (myTimer != null)
+            myTimer.cancel();
         super.onPause();
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }

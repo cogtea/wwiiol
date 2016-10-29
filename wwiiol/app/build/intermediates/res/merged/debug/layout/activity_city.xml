@@ -124,6 +124,7 @@
             android:layout_height="@dimen/abc_action_bar_default_height_material"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
+            app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Xsmall"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleTextColor="@color/primary_light" />
 

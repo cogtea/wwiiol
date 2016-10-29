@@ -75,6 +75,7 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
+            app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Xsmall"
             app:titleTextColor="@color/primary_light" />
 
     </android.support.design.widget.AppBarLayout>
