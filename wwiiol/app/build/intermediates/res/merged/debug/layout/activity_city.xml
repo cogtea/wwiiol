@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".MainActivity">
+    tools:context=".views.CityActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="@dimen/abc_action_bar_default_height_material"
-
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -124,8 +122,8 @@
             android:layout_height="@dimen/abc_action_bar_default_height_material"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Xsmall"
             app:layout_scrollFlags="scroll|enterAlways"
+            app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Xsmall"
             app:titleTextColor="@color/primary_light" />
 
     </android.support.design.widget.AppBarLayout>

@@ -1,6 +1,5 @@
 package archer.handietalkie.views;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -39,20 +38,19 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import archer.handietalkie.R;
-import archer.handietalkie.adapters.CaptureAdapter;
+import archer.handietalkie.adapters.FacilityAdapter;
 import archer.handietalkie.database.DataBaseController;
-import archer.handietalkie.models.CaptureModel;
 import archer.handietalkie.models.CpModel;
+import archer.handietalkie.models.FacilityModel;
 
-public class CityActivity extends AppCompatActivity {
-
+public class CityFacilities extends AppCompatActivity {
     public static final String CITY_NAME = "name";
     public static final String CITY_ID = "cityid";
     public static final String CITY_OWN = "cityOwn";
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
-    private ArrayList<CaptureModel> myDataset;
-    private CaptureAdapter mAdapter;
+    private ArrayList<FacilityModel> myDataset;
+    private FacilityAdapter mAdapter;
     private CoordinatorLayout coordinatorLayout;
     private LinearLayout loading;
     private String mAos;
@@ -65,11 +63,10 @@ public class CityActivity extends AppCompatActivity {
     private Snackbar snackbar;
     private Timer myTimer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_city);
+        setContentView(R.layout.activity_city_facilities);
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,9 +84,9 @@ public class CityActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        myDataset = new ArrayList<CaptureModel>();
+        myDataset = new ArrayList<FacilityModel>();
         //
-        mAdapter = new CaptureAdapter(myDataset, this);
+        mAdapter = new FacilityAdapter(myDataset, this);
         //
         mRecyclerView.setAdapter(mAdapter);
         //
@@ -123,12 +120,12 @@ public class CityActivity extends AppCompatActivity {
             }
         }
         //
-        getCurrentAo();
+        getCpFacilities();
 
         myhandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
-                getCurrentAo();
+                getCpFacilities();
                 snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
                 snackbar.show();
                 return false;
@@ -145,15 +142,15 @@ public class CityActivity extends AppCompatActivity {
         }, delay, period);
 
         Answers.getInstance().logContentView(new ContentViewEvent()
-                .putContentName("CityView")
+                .putContentName("CityFacilitiesView")
                 .putContentType("View")
-                .putContentId("2"));
+                .putContentId("3"));
     }
 
-    private void getCurrentAo() {
+    private void getCpFacilities() {
         if (myDataset.size() == 0)
             loading.setVisibility(View.VISIBLE);
-        String url = "http://wiretap.wwiionline.com/xmlquery/captures.xml?cp=" + cityId;
+        String url = "http://wiretap.wwiionline.com/xmlquery/facilities.xml?cp=" + cityId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -165,17 +162,16 @@ public class CityActivity extends AppCompatActivity {
                             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                             parser.setInput(in, null);
                             parser.nextTag();
-                            ArrayList<CaptureModel> aos = readFeed(parser);
+                            ArrayList<FacilityModel> aos = readFeed(parser);
                             in.close();
                             //
                             myDataset.clear();
                             //
-                            DataBaseController dataBaseController = new DataBaseController(CityActivity.this);
+                            DataBaseController dataBaseController = new DataBaseController(CityFacilities.this);
                             for (int i = 0; i < aos.size(); i++) {
-                                CpModel cpModel = dataBaseController.getFacility(aos.get(i).getFacilityId());
+                                CpModel cpModel = dataBaseController.getFacility(String.valueOf(aos.get(i).getId()));
                                 aos.get(i).setName(cpModel.getName());
                                 //
-                                aos.get(i).setDate(new java.util.Date(aos.get(i).getAt() * 1000).toString());
                                 myDataset.add(aos.get(i));
                             }
                             mAdapter.notifyDataSetChanged();
@@ -205,22 +201,22 @@ public class CityActivity extends AppCompatActivity {
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         //
-        Volley.newRequestQueue(CityActivity.this).add(stringRequest);
+        Volley.newRequestQueue(CityFacilities.this).add(stringRequest);
 
     }
 
-    private ArrayList<CaptureModel> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-        ArrayList<CaptureModel> entries = new ArrayList();
+    private ArrayList<FacilityModel> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+        ArrayList<FacilityModel> entries = new ArrayList();
 
-        parser.require(XmlPullParser.START_TAG, mAos, "captures");
+        parser.require(XmlPullParser.START_TAG, mAos, "facilities");
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
             String name = parser.getName();
             // Starts by looking for the entry tag
-            if (name.equals("cap")) {
-                entries.add(readCp(parser));
+            if (name.equals("fac")) {
+                entries.add(readFacility(parser));
             } else {
                 skip(parser);
             }
@@ -246,30 +242,26 @@ public class CityActivity extends AppCompatActivity {
     }
 
     // Processes link tags in the feed.
-    private CaptureModel readCp(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, mAos, "cap");
+    private FacilityModel readFacility(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, mAos, "fac");
         String id = parser.getAttributeValue(null, "id");
-        String at = parser.getAttributeValue(null, "at");
-        String fac = parser.getAttributeValue(null, "fac");
-        String from = parser.getAttributeValue(null, "from");
-        String by = parser.getAttributeValue(null, "by");
-        String to = parser.getAttributeValue(null, "to");
+        String ctry = parser.getAttributeValue(null, "ctry");
+        String side = parser.getAttributeValue(null, "side");
+        String open = parser.getAttributeValue(null, "open");
 
-        CaptureModel captureModel = new CaptureModel();
-        captureModel.setId(Integer.parseInt(id));
-        captureModel.setAt(Long.parseLong(at));
-        captureModel.setFacilityId(fac);
-        captureModel.setFrom(Integer.parseInt(from));
-        captureModel.setTo(Integer.parseInt(to));
-        captureModel.setBy(by);
+        FacilityModel facilityModel = new FacilityModel();
+        facilityModel.setId(Integer.parseInt(id));
+        facilityModel.setCtry(Integer.parseInt(ctry));
+        facilityModel.setSide(side);
+        facilityModel.setOpen(open);
         parser.nextTag();
-        return captureModel;
+        return facilityModel;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_city, menu);
+        getMenuInflater().inflate(R.menu.menu_city_status, menu);
         return true;
     }
 
@@ -282,12 +274,12 @@ public class CityActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            getCurrentAo();
+            getCpFacilities();
             return true;
-        } else if (id == R.id.action_city_status) {
-            Intent intent = new Intent(this, CityFacilities.class);
-            intent.putExtras(getIntent());
-            startActivity(intent);
+        }
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

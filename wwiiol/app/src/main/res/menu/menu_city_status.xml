@@ -1,16 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="archer.handietalkie.views.CityActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="archer.handietalkie.views.CityActivity">
     <item
         android:id="@+id/action_refresh"
         android:icon="@drawable/ic_refresh_white_24dp"
         android:orderInCategory="101"
         android:title="@string/action_settings"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_city_status"
-        android:icon="@drawable/ic_action_list"
-        android:orderInCategory="100"
-        android:title="@string/action_city_status"
         app:showAsAction="always" />
 </menu>

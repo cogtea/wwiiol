@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import archer.handietalkie.MainActivity;
+import archer.handietalkie.R;
 import archer.handietalkie.components.Loader;
 import archer.handietalkie.database.DataBaseController;
-import archer.handietalkie.R;
 
 public class SplashActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 2000;

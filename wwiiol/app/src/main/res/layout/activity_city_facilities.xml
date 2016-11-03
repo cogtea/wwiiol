@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".views.CityActivity">
+    tools:context=".views.CityFacilities">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/army_pattern"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -122,7 +123,7 @@
             android:layout_height="@dimen/abc_action_bar_default_height_material"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="enterAlways"
             app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Xsmall"
             app:titleTextColor="@color/primary_light" />
 

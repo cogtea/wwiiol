@@ -26,6 +26,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.ContentViewEvent;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,6 +130,12 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
                 myhandler.sendEmptyMessage(0);
             }
         }, delay, period);
+
+        Answers.getInstance().logContentView(new ContentViewEvent()
+                .putContentName("MainView")
+                .putContentType("View")
+                .putContentId("1"));
+
     }
 
     private void getServerStatus() {
