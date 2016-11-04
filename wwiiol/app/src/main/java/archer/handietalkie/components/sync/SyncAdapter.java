@@ -31,6 +31,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -257,6 +259,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                             //
                             dataBaseController.insertAoCpList(aos);
                             //
+
+                            getServerStatus();
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {
@@ -276,6 +280,54 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         Volley.newRequestQueue(getContext()).add(stringRequest);
 
     }
+
+    private void getServerStatus() {
+        String url = "http://wiretap.wwiionline.com/json/servers.json";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+
+                        // Display the first 500 characters of the response string.
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String pop = jsonObject.getJSONObject("1").getString("pop");
+                            String state = jsonObject.getJSONObject("1").getString("state");
+                            //
+                            if (state.equals("Online")) {
+                                if (pop.equals("Average")) {
+                                    sendNotification(2000, "Server pop", pop, R.mipmap.ic_launcher);
+                                } else if (pop.equals("Low") || pop.equals("Very Light") || pop.equals("Empty")) {
+                                    //sendNotification(2000, "Server pop", pop, R.mipmap.ic_launcher);
+                                } else {
+                                    sendNotification(2000, "Server pop", pop, R.mipmap.ic_launcher);
+                                }
+                            } else {
+
+                            }
+                            //
+
+                            //
+
+                        } catch (JSONException e) {
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        int socketTimeout = 30000;//30 seconds - change to what you want
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        //
+        Volley.newRequestQueue(getContext()).add(stringRequest);
+
+    }
+
 
     private void sendNotification(int mId, String mTitle, String mContent, int flag) {
         Bitmap largeIcon = BitmapFactory.decodeResource(getContext().getResources(), flag);

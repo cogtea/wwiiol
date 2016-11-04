@@ -56,13 +56,13 @@ MERGED from [com.crashlytics.sdk.android:answers:1.3.10] /media/ramy/8C6AC91F6AC
 	android:label
 		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:14:9-41
 	android:allowBackup
-		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:12:9-43
+		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:13:9-43
 	android:theme
 		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:15:9-40
 	android:name
-		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:13:9-37
+		ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:11:9-37
 activity#archer.handietalkie.MainActivity
 ADDED from /media/ramy/8C6AC91F6AC906C4/udacity/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:16:9-20:47
 	android:screenOrientation

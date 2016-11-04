@@ -307,11 +307,14 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         String cityId = parser.getAttributeValue(null, "id");
         String own = parser.getAttributeValue(null, "own");
         String hcUnit = parser.getAttributeValue(null, "ao");
+        String contention = parser.getAttributeValue(null, "contention");
+
         AoModel aoModel = new AoModel();
         aoModel.setAoId(hcUnit);
         aoModel.setCpId(cityId);
         aoModel.setOwn(Integer.parseInt(own.substring(0, 1)));
         aoModel.setSide(Integer.parseInt(own.substring(2, 3)));
+        aoModel.setContention(Boolean.parseBoolean(contention));
         parser.nextTag();
         return aoModel;
     }

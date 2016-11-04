@@ -164,6 +164,7 @@ public class DataBaseController extends SQLiteOpenHelper {
         deleteItems(CPLIST_TABLE);
         //
         SQLiteDatabase db = this.getWritableDatabase();
+
         // Gets the data repository in write mode
         for (int i = 0; i < modelArrayList.size(); i++) {
             CpModel cpModel = modelArrayList.get(i);
@@ -174,6 +175,7 @@ public class DataBaseController extends SQLiteOpenHelper {
             values.put(ORIG, cpModel.getOrig());
             db.insert(CPLIST_TABLE, null, values);
         }
+
 
         db.close();
     }
@@ -191,6 +193,7 @@ public class DataBaseController extends SQLiteOpenHelper {
             values.put(AO, aoModel.getAoId());
             db.insert(CPAOLIST_TABLE, null, values);
         }
+
         db.close();
     }
 

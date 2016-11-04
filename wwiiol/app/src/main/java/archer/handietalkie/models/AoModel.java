@@ -21,7 +21,7 @@ public class AoModel implements Parcelable {
     private int side;
     private String aoId;
     private String name;
-
+    private boolean contention;
 
     public AoModel() {
 
@@ -33,10 +33,19 @@ public class AoModel implements Parcelable {
         side = in.readInt();
         aoId = in.readString();
         name = in.readString();
+        contention = in.readByte() != 0;
     }
 
     public static Creator<AoModel> getCreator() {
         return CREATOR;
+    }
+
+    public boolean isContention() {
+        return contention;
+    }
+
+    public void setContention(boolean contention) {
+        this.contention = contention;
     }
 
     @Override
@@ -46,6 +55,7 @@ public class AoModel implements Parcelable {
         dest.writeInt(side);
         dest.writeString(aoId);
         dest.writeString(name);
+        dest.writeByte((byte) (contention ? 1 : 0));
     }
 
     @Override

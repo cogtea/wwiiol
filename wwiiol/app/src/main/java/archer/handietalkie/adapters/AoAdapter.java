@@ -2,6 +2,8 @@ package archer.handietalkie.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +14,9 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
 
-import archer.handietalkie.models.AoModel;
+import archer.handietalkie.MainActivity;
 import archer.handietalkie.R;
+import archer.handietalkie.models.AoModel;
 
 /**
  * Created by Ramy Sabry on 9/26/2015.
@@ -44,7 +47,7 @@ public class AoAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
+    public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
         final AoModel child = getChild(groupPosition, childPosition);
@@ -59,6 +62,24 @@ public class AoAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.cityname);
         ImageView own = (ImageView) convertView
                 .findViewById(R.id.own);
+        ImageView contention = (ImageView) convertView
+                .findViewById(R.id.contention);
+        if (child.isContention()) {
+            contention.setVisibility(View.VISIBLE);
+            contention.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(((AppCompatActivity) _context).findViewById(android.R.id.content), child.getName() + " has contention", Snackbar.LENGTH_LONG).setAction("Status", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ((MainActivity) _context).onChildClick(null, null, groupPosition, childPosition, getChildId(groupPosition, childPosition));
+                        }
+                    }).show();
+                }
+            });
+        } else {
+            contention.setVisibility(View.INVISIBLE);
+        }
         txtListChild.setText(child.getName());
         if (child.getOwn() == 1) {
             own.setImageResource(R.drawable.britain);
