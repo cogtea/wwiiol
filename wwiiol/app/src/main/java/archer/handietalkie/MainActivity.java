@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Xml;
 import android.view.Menu;
@@ -28,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
+import com.gardencoder.shooter.ShooterAppCompactActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +53,7 @@ import archer.handietalkie.views.CityActivity;
 import archer.handietalkie.views.SettingsActivity;
 
 
-public class MainActivity extends AppCompatActivity implements ExpandableListView.OnChildClickListener {
+public class MainActivity extends ShooterAppCompactActivity implements ExpandableListView.OnChildClickListener {
 
     // Sync interval constants
     public static final long SECONDS_PER_MINUTE = 60L;

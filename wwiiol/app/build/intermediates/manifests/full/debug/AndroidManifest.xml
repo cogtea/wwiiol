@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="archer.handietalkie"
-    android:versionCode="3"
-    android:versionName="1.0.2" >
+    android:versionCode="4"
+    android:versionName="1.0.4" >
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="archer.handietalkie.MyApplcation"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="archer.handietalkie.MainActivity"
@@ -99,6 +101,19 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="cbeaae8dbcb3443d33f379ab1394b6d13e78143e" />
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+        <meta-data
+            android:name="android.arch.lifecycle.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+
+        <activity
+            android:name="com.gardencoder.shooter.board.ShooterDrawingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.gardencoder.shooter.ShooterAppCompactActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

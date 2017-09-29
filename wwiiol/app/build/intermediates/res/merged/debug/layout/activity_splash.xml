@@ -15,4 +15,14 @@
         android:textColor="@color/primary_dark"
         android:textSize="40sp" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:theme="@style/AppTheme"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
 </RelativeLayout>

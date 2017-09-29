@@ -15,7 +15,7 @@ import archer.handietalkie.components.Loader;
 import archer.handietalkie.database.DataBaseController;
 
 public class SplashActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 2000;
+    private final int SPLASH_DISPLAY_LENGTH = 10000;
     private Intent mainIntent;
 
     @Override
@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }
 
-    class loadOnBackgroundThread extends AsyncTask<Integer, Void, Void> {
+    private class loadOnBackgroundThread extends AsyncTask<Integer, Void, Void> {
         @Override
         protected Void doInBackground(Integer... params) {
             try {
