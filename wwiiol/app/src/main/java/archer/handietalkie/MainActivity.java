@@ -1,21 +1,20 @@
 package archer.handietalkie;
 
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.Toolbar;
 import android.util.Xml;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -50,6 +49,7 @@ import archer.handietalkie.models.AoModel;
 import archer.handietalkie.models.CpModel;
 import archer.handietalkie.views.AboutActivity;
 import archer.handietalkie.views.CityActivity;
+import archer.handietalkie.views.MapsActivity;
 import archer.handietalkie.views.SettingsActivity;
 
 
@@ -65,7 +65,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
     ArrayList<AoModel> Axis, Allied;
     // Global variables
     // A content resolver for accessing the provider
-    ContentResolver mResolver;
     private Toolbar toolbar;
     private CoordinatorLayout coordinatorLayout;
     private TextView status;
@@ -74,22 +73,26 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
     private ArrayList<String> listDataHeader;
     private HashMap<String, List<AoModel>> listDataChild;
     private String mAos;
-    private ImageView statusImage;
-    private LinearLayout loading;
+    private AppCompatImageView statusImage;
+    private View loading;
     private Timer myTimer;
     private Handler myhandler;
-    private Snackbar snackbar;
+    private ImageButton openLocation;
+    private View statusBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListView = (ExpandableListView) findViewById(R.id.list);
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.CoordinatorLayout);
-        loading = (LinearLayout) findViewById(R.id.loading);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        status = (TextView) findViewById(R.id.status);
-        statusImage = (ImageView) findViewById(R.id.status_image);
+        coordinatorLayout = findViewById(R.id.CoordinatorLayout);
+        loading = findViewById(R.id.loading);
+        toolbar = findViewById(R.id.toolbar);
+        status = findViewById(R.id.status);
+        statusImage = findViewById(R.id.status_image);
+        statusBar = findViewById(R.id.status_bar);
+
+        openLocation = findViewById(R.id.open_location);
 
         setSupportActionBar(toolbar);
 
@@ -116,8 +119,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
             @Override
             public boolean handleMessage(Message msg) {
                 getServerStatus();
-                snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
-                snackbar.show();
                 return false;
             }
         });
@@ -139,8 +140,7 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
     }
 
     private void getServerStatus() {
-        if (Allied.size() == 0 && Axis.size() == 0)
-            loading.setVisibility(View.VISIBLE);
+        findViewById(R.id.loading).setVisibility(View.VISIBLE);
         String url = "http://wiretap.wwiionline.com/json/servers.json";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -154,22 +154,33 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                             String pop = jsonObject.getJSONObject("1").getString("pop");
                             String state = jsonObject.getJSONObject("1").getString("state");
 
-                            status.setText("Server pop : " + pop);
                             //
                             if (state.equals("Online")) {
-                                statusImage.setImageResource(R.drawable.ic_check_circle_white_24dp);
+                                statusImage.setImageResource(R.drawable.ic_check_circle_black_24dp);
+                                //
+                                if (pop.equals("Average")) {
+                                    status.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorOrange));
+                                    statusImage.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.colorOrange));
+                                    statusBar.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorOrangeTransparent));
+                                } else if (pop.equals("Low") || pop.equals("Very Light") || pop.equals("Empty")) {
+                                    status.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorRed));
+                                    statusImage.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.colorRed));
+                                    statusBar.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorRedTransparent));
+                                } else {
+                                    statusImage.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.colorGreen));
+                                    status.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorGreen));
+                                    statusBar.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorGreenTransparent));
+                                }
+                                status.setText("Server pop : " + pop);
+                                //
                             } else {
-                                statusImage.setImageResource(R.drawable.ic_highlight_off_white_24dp);
+                                status.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorRed));
+                                statusImage.setImageResource(R.drawable.ic_highlight_off_black_24dp);
+                                statusImage.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.colorRed));
+                                statusBar.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorRedTransparent));
+                                status.setText("Server is Offline.");
                             }
-                            //
-                            if (pop.equals("Average")) {
-                                status.setTextColor(Color.parseColor("#FF6600"));
-                            } else if (pop.equals("Low") || pop.equals("Very Light") || pop.equals("Empty")) {
-                                status.setTextColor(Color.RED);
-                            } else {
-                                status.setTextColor(Color.GREEN);
-                            }
-                            //
+
 
                         } catch (JSONException e) {
                             Snackbar.make(coordinatorLayout, e.toString(), Snackbar.LENGTH_LONG).show();
@@ -183,8 +194,7 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
             public void onErrorResponse(VolleyError error) {
                 Snackbar.make(coordinatorLayout, error.toString(), Snackbar.LENGTH_LONG).show();
                 loading.setVisibility(View.INVISIBLE);
-                if (snackbar != null)
-                    snackbar.dismiss();
+
 
             }
         });
@@ -205,7 +215,7 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         try {
-                            InputStream in = new ByteArrayInputStream(response.getBytes("UTF-8"));
+                            final InputStream in = new ByteArrayInputStream(response.getBytes("UTF-8"));
                             XmlPullParser parser = Xml.newPullParser();
                             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                             parser.setInput(in, null);
@@ -231,6 +241,15 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                             dataBaseController.insertAoCpList(aos);
                             listAdapter.notifyDataSetChanged();
                             //
+                            openLocation.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                                    intent.putParcelableArrayListExtra(MapsActivity.ALLIED, Allied);
+                                    intent.putParcelableArrayListExtra(MapsActivity.AXIS, Axis);
+                                    startActivity(intent);
+                                }
+                            });
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -238,8 +257,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                             e.printStackTrace();
                         }
                         loading.setVisibility(View.INVISIBLE);
-                        if (snackbar != null)
-                            snackbar.dismiss();
 
                         getSupportActionBar().setSubtitle(new java.util.Date().toString());
 
@@ -251,8 +268,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                 loading.setVisibility(View.INVISIBLE);
                 //
                 getSupportActionBar().setSubtitle(new java.util.Date().toString());
-                if (snackbar != null)
-                    snackbar.dismiss();
 
             }
         });
@@ -408,4 +423,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
         super.onDestroy();
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }
+
+
 }

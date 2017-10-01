@@ -95,12 +95,21 @@ public class Loader {
         String name = parser.getAttributeValue(null, "name");
         String type = parser.getAttributeValue(null, "type");
         String origCountry = parser.getAttributeValue(null, "orig-country");
+        String ox = parser.getAttributeValue(null, "x");
+        String oy = parser.getAttributeValue(null, "y");
 
         CpModel aoModel = new CpModel();
         aoModel.setId(Integer.parseInt(id));
         aoModel.setName(name);
         aoModel.setType(Integer.parseInt(type));
         aoModel.setOrig(Integer.parseInt(origCountry));
+        try {
+            aoModel.setOx(Double.parseDouble(ox));
+            aoModel.setOy(Double.parseDouble(oy));
+        } catch (NumberFormatException e) {
+            aoModel.setOx(0);
+            aoModel.setOy(0);
+        }
         //
         parser.nextTag();
         //

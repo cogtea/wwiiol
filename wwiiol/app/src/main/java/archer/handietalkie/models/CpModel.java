@@ -7,14 +7,12 @@ public class CpModel implements Parcelable {
 
     public static final Creator<CpModel> CREATOR = new Creator<CpModel>() {
         @Override
-        public CpModel createFromParcel(Parcel source) {
-            // TODO Auto-generated method stub
-            return new CpModel(source);
+        public CpModel createFromParcel(Parcel in) {
+            return new CpModel(in);
         }
 
         @Override
         public CpModel[] newArray(int size) {
-            // TODO Auto-generated method stub
             return new CpModel[size];
         }
     };
@@ -22,20 +20,66 @@ public class CpModel implements Parcelable {
     private int orig;
     private int type;
     private String name;
+    private double ox;
+    private double oy;
+    private int controller;
 
     public CpModel() {
 
     }
 
-    public CpModel(Parcel in) {
-        name = in.readString();
+    protected CpModel(Parcel in) {
         id = in.readInt();
-        type = in.readInt();
         orig = in.readInt();
+        type = in.readInt();
+        name = in.readString();
+        ox = in.readDouble();
+        oy = in.readDouble();
+        controller = in.readInt();
     }
 
     public static Creator<CpModel> getCreator() {
         return CREATOR;
+    }
+
+    public int getController() {
+        return controller;
+    }
+
+    public void setController(int controller) {
+        this.controller = controller;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(orig);
+        dest.writeInt(type);
+        dest.writeString(name);
+        dest.writeDouble(ox);
+        dest.writeDouble(oy);
+        dest.writeInt(controller);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public double getOx() {
+        return ox;
+    }
+
+    public void setOx(double ox) {
+        this.ox = ox;
+    }
+
+    public double getOy() {
+        return oy;
+    }
+
+    public void setOy(double oy) {
+        this.oy = oy;
     }
 
     public int getId() {
@@ -70,17 +114,4 @@ public class CpModel implements Parcelable {
         this.name = name;
     }
 
-    @Override
-    public int describeContents() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeInt(id);
-        dest.writeInt(type);
-        dest.writeInt(orig);
-    }
 }

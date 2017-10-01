@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/army_pattern_bg"
+    android:background="@color/primary_dark"
     tools:context="archer.handietalkie.views.SplashActivity">
 
     <TextView
@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Handie Talkie"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/primary_dark"
-        android:textSize="40sp" />
+        android:textColor="@color/primary_light"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -21,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:theme="@style/AppTheme"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="10dp"
+        android:theme="@style/AppTheme" />
 
 </RelativeLayout>

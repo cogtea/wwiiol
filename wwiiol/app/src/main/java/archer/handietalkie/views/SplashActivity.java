@@ -15,7 +15,7 @@ import archer.handietalkie.components.Loader;
 import archer.handietalkie.database.DataBaseController;
 
 public class SplashActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 10000;
+    private final int SPLASH_DISPLAY_LENGTH = 1000;
     private Intent mainIntent;
 
     @Override

@@ -18,7 +18,7 @@ public class DataBaseController extends SQLiteOpenHelper {
      * Database declare
      */
     public static final String DATABASE_NAME = "wwiiol";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     /**
      * Tables Declare
      */
@@ -34,11 +34,13 @@ public class DataBaseController extends SQLiteOpenHelper {
     private static final String NAME = "name";
     private static final String TYPE = "type";
     private static final String ORIG = "orig";
-    public static final String CP_TABLE_CREATE = "create table " + CPLIST_TABLE
-            + "(" + ID + "  integer  , " + NAME + " integer , " + TYPE + " integer , " + ORIG + " integer );";
     /* --------------------------------- */
     public static final String FA_TABLE_CREATE = "create table " + FALIST_TABLE
             + "(" + ID + "  integer  , " + NAME + " integer , " + TYPE + " integer , " + ORIG + " integer );";
+    private static final String OX = "ox";
+    private static final String OY = "oy";
+    public static final String CP_TABLE_CREATE = "create table " + CPLIST_TABLE
+            + "(" + ID + "  integer  , " + NAME + " integer , " + TYPE + " integer , " + ORIG + " integer , " + OX + " REAL , " + OY + " REAL );";
     private static final String TAG = "DataBase - log";
     Context context;
 
@@ -62,6 +64,7 @@ public class DataBaseController extends SQLiteOpenHelper {
 
         database.execSQL("DROP TABLE IF EXISTS " + CPLIST_TABLE);
         database.execSQL("DROP TABLE IF EXISTS " + FALIST_TABLE);
+        database.execSQL("DROP TABLE IF EXISTS " + CPAOLIST_TABLE);
 
         onCreate(database);
     }
@@ -76,6 +79,8 @@ public class DataBaseController extends SQLiteOpenHelper {
             cpModel.setName(c.getString(1));
             cpModel.setType(c.getInt(2));
             cpModel.setOrig(c.getInt(3));
+            cpModel.setOx(c.getDouble(4));
+            cpModel.setOy(c.getInt(5));
             arrayList.add(cpModel);
         }
         c.close();
@@ -125,6 +130,9 @@ public class DataBaseController extends SQLiteOpenHelper {
             cpModel.setName(c.getString(1));
             cpModel.setType(c.getInt(2));
             cpModel.setOrig(c.getInt(3));
+            cpModel.setOx(c.getDouble(4));
+            cpModel.setOy(c.getDouble(5));
+
         }
         c.close();
         db.close();
@@ -173,6 +181,9 @@ public class DataBaseController extends SQLiteOpenHelper {
             values.put(NAME, cpModel.getName());
             values.put(TYPE, cpModel.getType());
             values.put(ORIG, cpModel.getOrig());
+            values.put(OX, cpModel.getOx());
+            values.put(OY, cpModel.getOy());
+
             db.insert(CPLIST_TABLE, null, values);
         }
 

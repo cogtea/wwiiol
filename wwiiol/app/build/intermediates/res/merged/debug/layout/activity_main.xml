@@ -12,18 +12,19 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/status_bar"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/abc_action_bar_default_height_material"
-                android:background="@drawable/army_pattern"
                 android:gravity="center">
 
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/status_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -31,37 +32,46 @@
 
                 <TextView
                     android:id="@+id/status"
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="center|left"
                     android:textColor="@color/secondary_text"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/open_location"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:padding="10dp"
+                    android:scaleType="fitXY"
+                    android:tint="@color/primary_light"
+                    app:srcCompat="@drawable/ic_map_black_24dp" />
             </LinearLayout>
 
             <ExpandableListView
                 android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/abc_action_bar_default_height_material">
+                android:layout_marginBottom="@dimen/abc_action_bar_default_height_material"
+                android:childDivider="@color/primary"
+                android:dividerHeight="0dp"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false">
 
             </ExpandableListView>
 
         </LinearLayout>
 
-        <LinearLayout
+        <include
             android:id="@+id/loading"
+            layout="@layout/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary_light"
-            android:gravity="center"
-            android:visibility="invisible">
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:visibility="visible" />
     </RelativeLayout>
 
     <android.support.design.widget.AppBarLayout

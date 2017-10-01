@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-    <!-- Main theme colors -->
+        <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">@color/primary</item>
         <!--   darker variant for the status bar and contextual app bars -->
@@ -28,7 +28,15 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="allied_Bubble.TextAppearance" parent="amu_Bubble.TextAppearance.Dark">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
 
+    <style name="axis_Bubble.TextAppearance" parent="amu_Bubble.TextAppearance.Dark">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
     <style name="Base.TextAppearance.AppCompat.Xsmall" parent="@style/Base.TextAppearance.AppCompat.Small">
         <item name="android:textSize">10sp</item>
     </style>

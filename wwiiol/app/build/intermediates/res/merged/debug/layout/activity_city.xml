@@ -4,7 +4,7 @@
     android:id="@+id/CoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/primary_dark"
     tools:context=".views.CityActivity">
 
     <RelativeLayout
@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/army_pattern"
+                android:background="@color/primary"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -85,7 +85,7 @@
                     android:layout_height="fill_parent"
                     android:layout_marginLeft="20dp"
                     android:gravity="center|left"
-                    android:textColor="@color/primary_dark"
+                    android:textColor="@color/primary_light"
                     android:textSize="30sp" />
             </LinearLayout>
 
