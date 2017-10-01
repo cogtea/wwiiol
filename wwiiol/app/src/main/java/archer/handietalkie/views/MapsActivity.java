@@ -1,5 +1,6 @@
 package archer.handietalkie.views;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -48,7 +49,7 @@ import archer.handietalkie.models.AoModel;
 import archer.handietalkie.models.CpModel;
 import archer.handietalkie.tools.GameLocation;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener {
 
     public static final String AXIS = "axis";
     public static final String ALLIED = "allied";
@@ -102,6 +103,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        this.googleMap.setOnInfoWindowClickListener(this);
+        this.googleMap.setOnMarkerClickListener(this);
         try {
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
@@ -184,11 +187,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             for (AoModel ao : Axis) {
                                 // Add a marker axis
                                 CpModel cpModel = new DataBaseController(MapsActivity.this).getCp(ao.getCpId());
-                                Marker marker = googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon(Html.fromHtml("<b>" + cpModel.getName() + "</b> has AO!"))))
+                                Marker marker = googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon(Html.fromHtml("<b>" + cpModel.getName() + "</b> has AO (Axis)!"))))
                                         .position(GameLocation.getLatLonFromOctetXY(cpModel.getOx(), cpModel.getOy()))
                                         .anchor(0.45f, 1.4f)
                                         .zIndex(1.0f));
-                                marker.showInfoWindow();
+                                marker.setTag(cpModel.getId());
                             }
 
                             iconGenerator.setTextAppearance(R.style.allied_Bubble_TextAppearance);
@@ -197,12 +200,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 CpModel cpModel = new DataBaseController(MapsActivity.this).getCp(ao.getCpId());
 
                                 Marker marker = googleMap.
-                                        addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon(Html.fromHtml("<b>" + cpModel.getName() + "</b> has AO!"))))
+                                        addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon(Html.fromHtml("<b>" + cpModel.getName() + "</b> has AO (Allied)!"))))
                                                 .position(GameLocation.getLatLonFromOctetXY(cpModel.getOx(), cpModel.getOy()))
                                                 .anchor(0.45f, 1.4f)
                                                 .zIndex(1.0f));
-                                marker.showInfoWindow();
-
+                                marker.setTag(cpModel.getId());
                             }
 
 
@@ -266,7 +268,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             .anchor(0.0f, 1.0f)
                             .zIndex(1.0f)
                             .title(cpModel.getName()));
-            marker.showInfoWindow();
+            marker.setTag(cpModel.getId());
         }
     }
 
@@ -318,4 +320,51 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
     }
 
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        try {
+            Intent intent = new Intent(this, CityActivity.class);
+            CpModel city = new DataBaseController(this).getCp(marker.getTag().toString());
+            intent.putExtra(CityActivity.CITY_ID, String.valueOf(city.getId()));
+            intent.putExtra(CityActivity.CITY_NAME, city.getName());
+            intent.putExtra(CityActivity.CITY_OWN, String.valueOf(city.getController()));
+            startActivity(intent);
+        } catch (NumberFormatException e) {
+
+        }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        try {
+            Intent intent = new Intent(this, CityActivity.class);
+            CpModel city = new DataBaseController(this).getCp(marker.getTag().toString());
+            if (isCpHasAo(city.getId())) {
+                intent.putExtra(CityActivity.CITY_ID, String.valueOf(city.getId()));
+                intent.putExtra(CityActivity.CITY_NAME, city.getName());
+                intent.putExtra(CityActivity.CITY_OWN, String.valueOf(city.getController()));
+                startActivity(intent);
+                return true;
+            } else {
+
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean isCpHasAo(int cpId) {
+        for (int i = 0; i < Axis.size(); i++) {
+            if (Integer.parseInt(Axis.get(i).getCpId()) == cpId) {
+                return true;
+            }
+        }
+        for (int i = 0; i < Allied.size(); i++) {
+            if (Integer.parseInt(Allied.get(i).getCpId()) == cpId) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

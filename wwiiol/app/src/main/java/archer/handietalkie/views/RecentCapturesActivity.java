@@ -13,9 +13,7 @@ import android.util.Xml;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -44,31 +42,20 @@ import archer.handietalkie.models.CaptureModel;
 import archer.handietalkie.models.CpModel;
 import archer.handietalkie.utilities.RecyclerViewEmptySupport;
 
-public class CityActivity extends AppCompatActivity {
-
-    public static final String CITY_NAME = "name";
-    public static final String CITY_ID = "cityid";
-    public static final String CITY_OWN = "cityOwn";
-    private RecyclerViewEmptySupport mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
+public class RecentCapturesActivity extends AppCompatActivity {
     private ArrayList<CaptureModel> myDataset;
     private CaptureAdapter mAdapter;
     private CoordinatorLayout coordinatorLayout;
     private LinearLayout loading;
-    private String mAos;
-    private String cityId;
-    private String cityName;
-    private TextView status;
-    private ImageView statusImageOrigin, statusImageOwn;
-    private int cityOwn;
     private Handler myhandler;
     private Timer myTimer;
+    private String mAos;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_city);
+        setContentView(R.layout.activity_recent_captures);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //
@@ -76,53 +63,19 @@ public class CityActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         //
-        status = findViewById(R.id.status);
-        statusImageOrigin = findViewById(R.id.status_image_origin);
-        statusImageOwn = findViewById(R.id.status_image_own);
         coordinatorLayout = findViewById(R.id.CoordinatorLayout);
         loading = findViewById(R.id.loading);
-        mRecyclerView = findViewById(R.id.list);
+        RecyclerViewEmptySupport mRecyclerView = findViewById(R.id.list);
         mRecyclerView.setEmptyView(findViewById(R.id.list_empty));
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         myDataset = new ArrayList<CaptureModel>();
         //
         mAdapter = new CaptureAdapter(myDataset, this);
         //
         mRecyclerView.setAdapter(mAdapter);
-        //
-        if (getIntent().getExtras() != null && getIntent().getExtras().getString(CITY_ID) != null) {
-            cityId = getIntent().getExtras().getString(CITY_ID);
-            cityName = getIntent().getExtras().getString(CITY_NAME);
-            cityOwn = getIntent().getExtras().getInt(CITY_OWN);
 
-            getSupportActionBar().setTitle(cityName);
-            //
-            CpModel cpModel = new DataBaseController(this).getCp(cityId);
-            status.setText(cpModel.getName());
-            if (cpModel.getOrig() == 1) {
-                statusImageOrigin.setImageResource(R.drawable.britain);
-            } else if (cpModel.getOrig() == 3) {
-                statusImageOrigin.setImageResource(R.drawable.france);
-            } else if (cpModel.getOrig() == 2) {
-                statusImageOrigin.setImageResource(R.drawable.unitedstates);
-            } else if (cpModel.getOrig() == 4) {
-                statusImageOrigin.setImageResource(R.drawable.german);
-            }
-
-            if (cityOwn == 0)
-                cityOwn = cpModel.getOrig();
-            if (cityOwn == 1) {
-                statusImageOwn.setImageResource(R.drawable.britain);
-            } else if (cityOwn == 3) {
-                statusImageOwn.setImageResource(R.drawable.france);
-            } else if (cityOwn == 2) {
-                statusImageOwn.setImageResource(R.drawable.unitedstates);
-            } else if (cityOwn == 4) {
-                statusImageOwn.setImageResource(R.drawable.german);
-            }
-        }
         //
         getCurrentAo();
 
@@ -150,9 +103,8 @@ public class CityActivity extends AppCompatActivity {
     }
 
     private void getCurrentAo() {
-        if (myDataset.size() == 0)
-            loading.setVisibility(View.VISIBLE);
-        String url = "http://wiretap.wwiionline.com/xmlquery/captures.xml?cp=" + cityId;
+        loading.setVisibility(View.VISIBLE);
+        String url = "http://wiretap.wwiionline.com/xmlquery/captures.xml?hours=10&limit=20";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -169,7 +121,7 @@ public class CityActivity extends AppCompatActivity {
                             //
                             myDataset.clear();
                             //
-                            DataBaseController dataBaseController = new DataBaseController(CityActivity.this);
+                            DataBaseController dataBaseController = new DataBaseController(RecentCapturesActivity.this);
                             for (int i = 0; i < aos.size(); i++) {
                                 CpModel cpModel = dataBaseController.getFacility(aos.get(i).getFacilityId());
                                 aos.get(i).setName(cpModel.getName());
@@ -202,7 +154,7 @@ public class CityActivity extends AppCompatActivity {
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         //
-        Volley.newRequestQueue(CityActivity.this).add(stringRequest);
+        Volley.newRequestQueue(RecentCapturesActivity.this).add(stringRequest);
 
     }
 
@@ -266,7 +218,7 @@ public class CityActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_city, menu);
+        getMenuInflater().inflate(R.menu.menu_recent_captures, menu);
         return true;
     }
 
@@ -285,8 +237,6 @@ public class CityActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CityFacilities.class);
             intent.putExtras(getIntent());
             startActivity(intent);
-        } else if (id == android.R.id.home) {
-            onBackPressed();
         }
 
         return super.onOptionsItemSelected(item);

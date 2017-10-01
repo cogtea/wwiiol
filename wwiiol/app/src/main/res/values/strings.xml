@@ -84,4 +84,8 @@
     <string name="title_activity_maps">Map</string>
     <string name="version">Version:</string>
     <string name="prepare_for_first_time">Prepare application for first time.</string>
+    <string name="title_activity_recent_captures">Recent Captures</string>
+    <string name="no_recent_captures">No recent captures</string>
+    <string name="origin">Origin</string>
+    <string name="own">Own</string>
 </resources>

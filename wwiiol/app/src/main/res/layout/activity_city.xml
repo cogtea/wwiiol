@@ -42,7 +42,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="10dp"
-                            android:text="Origin"
+                            android:text="@string/origin"
                             android:textColor="@color/primary_light" />
 
                         <ImageView
@@ -65,7 +65,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="10dp"
-                            android:text="Own"
+                            android:text="@string/own"
                             android:textColor="@color/primary_light" />
 
                         <ImageView
@@ -86,7 +86,7 @@
                     android:layout_marginLeft="20dp"
                     android:gravity="center|left"
                     android:textColor="@color/primary_light"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <archer.handietalkie.utilities.RecyclerViewEmptySupport
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="No recent captures"
+            android:text="@string/no_recent_captures"
             android:textColor="@color/primary_light" />
 
         <include

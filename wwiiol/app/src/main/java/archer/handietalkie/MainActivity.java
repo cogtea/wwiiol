@@ -51,6 +51,7 @@ import archer.handietalkie.models.CpModel;
 import archer.handietalkie.views.AboutActivity;
 import archer.handietalkie.views.CityActivity;
 import archer.handietalkie.views.MapsActivity;
+import archer.handietalkie.views.RecentCapturesActivity;
 import archer.handietalkie.views.SettingsActivity;
 
 
@@ -106,7 +107,8 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                     intent.putParcelableArrayListExtra(MapsActivity.AXIS, Axis);
                     startActivity(intent);
                 } else if (tabId == R.id.tab_recent) {
-
+                    Intent intent = new Intent(MainActivity.this, RecentCapturesActivity.class);
+                    startActivity(intent);
                 } else if (tabId == R.id.tab_home) {
 
                 }

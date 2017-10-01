@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:2:1-128:12
+ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:2:1-138:12
 	package
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:3:5-34
 		INJECTED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml
@@ -44,7 +44,7 @@ ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:16
 	android:name
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:16:22-76
 application
-ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:18:5-126:19
+ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:18:5-136:19
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/Ramy/.android/build-cache/22dd2fbba62e81041ac031be09f21b8d31f5ef7e/output/AndroidManifest.xml:11:5-20
 MERGED from [com.crashlytics.sdk.android:beta:1.2.5] /Users/Ramy/.android/build-cache/7965da19d291a4a1993252e0ee6dc28df2efc653/output/AndroidManifest.xml:11:5-20
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.17] /Users/Ramy/.android/build-cache/4f7ea1f1498b140920e11e192eb2c19d27907c69/output/AndroidManifest.xml:54:5-20
@@ -71,6 +71,7 @@ MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Ramy/.android/bu
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Ramy/.android/build-cache/be6e53ae20987c43eaaee34e8a6b46a20cf094ab/output/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:26.1.0] /Users/Ramy/.android/build-cache/91d539263e6bca4850284fd5a3e5a6796230cbf0/output/AndroidManifest.xml:25:5-29:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Ramy/.android/build-cache/eb54faf9964d1ea10870c17d51546690b61ec50a/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Ramy/.android/build-cache/3acbd1f9dd4bfab46b640df870b14f0c105a1b95/output/AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:22:9-41
 	android:supportsRtl
@@ -225,6 +226,18 @@ ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:11
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:121:13-44
 	android:name
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:117:13-47
+activity#archer.handietalkie.views.RecentCapturesActivity
+ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:126:9-135:20
+	android:screenOrientation
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:131:13-49
+	android:label
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:129:13-67
+	android:parentActivityName
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:130:13-55
+	android:configChanges
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:128:13-74
+	android:name
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:127:13-57
 uses-sdk
 INJECTED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/Ramy/.android/build-cache/22dd2fbba62e81041ac031be09f21b8d31f5ef7e/output/AndroidManifest.xml:7:5-43
@@ -254,6 +267,7 @@ MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Ramy/.android/bu
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Ramy/.android/build-cache/be6e53ae20987c43eaaee34e8a6b46a20cf094ab/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:26.1.0] /Users/Ramy/.android/build-cache/91d539263e6bca4850284fd5a3e5a6796230cbf0/output/AndroidManifest.xml:21:5-23:58
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Ramy/.android/build-cache/eb54faf9964d1ea10870c17d51546690b61ec50a/output/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Ramy/.android/build-cache/3acbd1f9dd4bfab46b640df870b14f0c105a1b95/output/AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

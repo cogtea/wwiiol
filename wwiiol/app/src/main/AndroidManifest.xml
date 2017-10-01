@@ -123,6 +123,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="archer.handietalkie.MainActivity" />
         </activity>
+        <activity
+            android:name=".views.RecentCapturesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_recent_captures"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="archer.handietalkie.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

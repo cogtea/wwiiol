@@ -137,6 +137,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="archer.handietalkie.MainActivity" />
         </activity>
+        <activity
+            android:name="archer.handietalkie.views.RecentCapturesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_recent_captures"
+            android:parentActivityName="archer.handietalkie.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="archer.handietalkie.MainActivity" />
+        </activity>
 
         <meta-data
             android:name="android.support.VERSION"

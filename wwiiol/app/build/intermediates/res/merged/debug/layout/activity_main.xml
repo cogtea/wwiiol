@@ -62,8 +62,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/abc_action_bar_default_height_material"
                 android:background="@color/primary"
-                app:bb_inActiveTabColor="@color/primary_dark"
                 app:bb_activeTabColor="@color/primary_dark"
+                app:bb_inActiveTabColor="@color/primary_dark"
                 app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
         </LinearLayout>
