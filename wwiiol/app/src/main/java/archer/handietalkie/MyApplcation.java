@@ -20,7 +20,7 @@ public class MyApplcation extends Application implements ConnectionHub {
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
-        Shooter.install(this).enableScreenShot(true);
+        Shooter.install(this).enableScreenShot(false);
 
     }
 

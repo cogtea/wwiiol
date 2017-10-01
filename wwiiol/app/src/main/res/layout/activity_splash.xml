@@ -23,7 +23,7 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:textColor="@color/primary"
+        android:textColor="@color/primary_light"
         android:textSize="16sp"
         android:textStyle="normal"
         android:visibility="gone" />

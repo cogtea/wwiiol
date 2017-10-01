@@ -82,7 +82,8 @@ public class AoAdapter extends BaseExpandableListAdapter {
                 }
             });
         } else {
-            contention.setVisibility(View.INVISIBLE);
+            contention.clearAnimation();
+            contention.setVisibility(View.GONE);
         }
         txtListChild.setText(child.getName());
         if (child.getOwn() == 1) {
