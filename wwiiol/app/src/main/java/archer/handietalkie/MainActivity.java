@@ -1,6 +1,9 @@
 package archer.handietalkie;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,9 +11,11 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Xml;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -154,7 +159,20 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                 .putContentName("MainView")
                 .putContentType("View")
                 .putContentId("1"));
+        Intent intent = getIntent();
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Uri data = intent.getData();
+            try {
+                intent = new Intent(this, CityActivity.class);
+                CpModel city = new DataBaseController(this).getCp(data.toString());
+                intent.putExtra(CityActivity.CITY_ID, String.valueOf(city.getId()));
+                intent.putExtra(CityActivity.CITY_NAME, city.getName());
+                intent.putExtra(CityActivity.CITY_OWN, String.valueOf(city.getController()));
+                startActivity(intent);
+            } catch (NumberFormatException e) {
 
+            }
+        }
     }
 
     private void getServerStatus() {
@@ -363,8 +381,16 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // Inflate the options menu from XML
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
         return true;
     }
 

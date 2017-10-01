@@ -139,6 +139,26 @@ public class DataBaseController extends SQLiteOpenHelper {
         return cpModel;
     }
 
+    public ArrayList<CpModel> searchByCp(String keyword) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT *  FROM " + CPLIST_TABLE + " WHERE " + NAME + " LIKE '%" + keyword + "%' LIMIT 5;", null);
+
+        ArrayList<CpModel> arrayList = new ArrayList<CpModel>();
+        while (c.moveToNext()) {
+            CpModel cpModel = new CpModel();
+            cpModel.setId(c.getInt(0));
+            cpModel.setName(c.getString(1));
+            cpModel.setType(c.getInt(2));
+            cpModel.setOrig(c.getInt(3));
+            cpModel.setOx(c.getDouble(4));
+            cpModel.setOy(c.getInt(5));
+            arrayList.add(cpModel);
+        }
+        c.close();
+        db.close();
+        return arrayList;
+    }
+
     public boolean getAoCp(String ao) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + CPAOLIST_TABLE + " WHERE " + AO + " = " + ao + ";", null);
