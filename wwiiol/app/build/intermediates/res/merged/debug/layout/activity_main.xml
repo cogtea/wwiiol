@@ -41,28 +41,30 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.AppCompatImageButton
-                    android:id="@+id/open_location"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@null"
-                    android:padding="10dp"
-                    android:scaleType="fitXY"
-                    android:tint="@color/primary_light"
-                    app:srcCompat="@drawable/ic_map_black_24dp" />
             </LinearLayout>
 
             <ExpandableListView
                 android:id="@+id/list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/abc_action_bar_default_height_material"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:childDivider="@color/primary"
                 android:dividerHeight="0dp"
                 android:footerDividersEnabled="false"
                 android:headerDividersEnabled="false">
 
             </ExpandableListView>
+
+            <com.roughike.bottombar.BottomBar
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/abc_action_bar_default_height_material"
+                android:background="@color/primary"
+                app:bb_inActiveTabColor="@color/primary_dark"
+                app:bb_activeTabColor="@color/primary_dark"
+                app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
         </LinearLayout>
 

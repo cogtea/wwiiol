@@ -61,7 +61,6 @@ public class CityFacilities extends AppCompatActivity {
     private ImageView statusImageOrigin, statusImageOwn;
     private int cityOwn;
     private Handler myhandler;
-    private Snackbar snackbar;
     private Timer myTimer;
 
     @Override
@@ -130,8 +129,6 @@ public class CityFacilities extends AppCompatActivity {
             @Override
             public boolean handleMessage(Message msg) {
                 getCpFacilities();
-                snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
-                snackbar.show();
                 return false;
             }
         });
@@ -152,8 +149,7 @@ public class CityFacilities extends AppCompatActivity {
     }
 
     private void getCpFacilities() {
-        if (myDataset.size() == 0)
-            loading.setVisibility(View.VISIBLE);
+        loading.setVisibility(View.VISIBLE);
         String url = "http://wiretap.wwiionline.com/xmlquery/facilities.xml?cp=" + cityId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -187,8 +183,6 @@ public class CityFacilities extends AppCompatActivity {
                         }
                         loading.setVisibility(View.INVISIBLE);
                         getSupportActionBar().setSubtitle(new java.util.Date().toString());
-                        if (snackbar != null)
-                            snackbar.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -196,8 +190,6 @@ public class CityFacilities extends AppCompatActivity {
                 Snackbar.make(coordinatorLayout, error.toString(), Snackbar.LENGTH_LONG).show();
                 loading.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setSubtitle(new java.util.Date().toString());
-                if (snackbar != null)
-                    snackbar.dismiss();
             }
         });
 

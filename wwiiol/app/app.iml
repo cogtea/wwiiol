@@ -101,6 +101,7 @@
     <orderEntry type="library" exported="" name="recyclerview-v7-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="bottom-bar-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="shooter-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="crashlytics-core-2.3.17" level="project" />
     <orderEntry type="library" exported="" name="android-maps-utils-0.5" level="project" />

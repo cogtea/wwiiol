@@ -67,7 +67,7 @@
             android:name="archer.handietalkie.views.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName="archer.handietalkie.MainActivity"
-            android:theme="@style/AppTheme2" >
+            android:theme="@style/AppTheme.actionbar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="archer.handietalkie.MainActivity" />

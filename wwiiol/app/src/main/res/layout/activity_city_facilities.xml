@@ -99,18 +99,12 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <include
             android:id="@+id/loading"
+            layout="@layout/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary_light"
-            android:gravity="center"
-            android:visibility="invisible">
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:visibility="visible" />
     </RelativeLayout>
 
     <android.support.design.widget.AppBarLayout

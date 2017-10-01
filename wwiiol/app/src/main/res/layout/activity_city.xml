@@ -89,27 +89,30 @@
                     android:textSize="30sp" />
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <archer.handietalkie.utilities.RecyclerViewEmptySupport
                 android:id="@+id/list"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-            </android.support.v7.widget.RecyclerView>
+            </archer.handietalkie.utilities.RecyclerViewEmptySupport>
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/list_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="No recent captures"
+            android:textColor="@color/primary_light" />
+
+        <include
             android:id="@+id/loading"
+            layout="@layout/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary_light"
-            android:gravity="center"
-            android:visibility="invisible">
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:visibility="visible" />
     </RelativeLayout>
 
     <android.support.design.widget.AppBarLayout

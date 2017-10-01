@@ -7,9 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +17,7 @@ import java.util.List;
 import archer.handietalkie.MainActivity;
 import archer.handietalkie.R;
 import archer.handietalkie.models.AoModel;
+import archer.handietalkie.tools.Animation;
 
 /**
  * Created by Ramy Sabry on 9/26/2015.
@@ -70,12 +68,7 @@ public class AoAdapter extends BaseExpandableListAdapter {
         if (child.isContention()) {
             contention.setVisibility(View.VISIBLE);
             // blinking
-            final Animation animation = new AlphaAnimation(1, 0);
-            animation.setDuration(1000);
-            animation.setInterpolator(new LinearInterpolator());
-            animation.setRepeatCount(Animation.INFINITE);
-            animation.setRepeatMode(Animation.REVERSE);
-            contention.startAnimation(animation);
+            Animation.blinking(contention);
             //
             contention.setOnClickListener(new View.OnClickListener() {
                 @Override

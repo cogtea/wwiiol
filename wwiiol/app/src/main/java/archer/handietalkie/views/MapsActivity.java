@@ -130,10 +130,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(GameLocation.getLatLonFromOctetXY(cities.get(420).getOx(), cities.get(420).getOy()), 15.0f));
 
 
-        // start
-        updateCpListStatus();
-
-
         myhandler = new Handler(new Handler.Callback() {
 
             @Override
@@ -211,7 +207,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                             CpModel cpModel = new DataBaseController(MapsActivity.this).getCp(Allied.get(0).getCpId());
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(GameLocation.getLatLonFromOctetXY(cpModel.getOx(), cpModel.getOy()), 8.0f), new GoogleMap.CancelableCallback() {
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(GameLocation.getLatLonFromOctetXY(cpModel.getOx(), cpModel.getOy()), 9.0f), new GoogleMap.CancelableCallback() {
                                 @Override
                                 public void onFinish() {
                                     findViewById(R.id.loading).setVisibility(View.INVISIBLE);
@@ -224,6 +220,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             });
 
                             //
+                            getSupportActionBar().setSubtitle(new java.util.Date().toString());
+
                         } catch (JSONException e) {
                             Snackbar.make(coordinatorLayout, e.toString(), Snackbar.LENGTH_LONG).show();
                         }

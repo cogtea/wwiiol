@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -27,6 +26,8 @@ import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
 import com.gardencoder.shooter.ShooterAppCompactActivity;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,14 +78,14 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
     private View loading;
     private Timer myTimer;
     private Handler myhandler;
-    private ImageButton openLocation;
     private View statusBar;
+    private BottomBar bottomBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mListView = (ExpandableListView) findViewById(R.id.list);
+        mListView = findViewById(R.id.list);
         coordinatorLayout = findViewById(R.id.CoordinatorLayout);
         loading = findViewById(R.id.loading);
         toolbar = findViewById(R.id.toolbar);
@@ -92,10 +93,25 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
         statusImage = findViewById(R.id.status_image);
         statusBar = findViewById(R.id.status_bar);
 
-        openLocation = findViewById(R.id.open_location);
 
         setSupportActionBar(toolbar);
 
+        bottomBar = findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(int tabId) {
+                if (tabId == R.id.tab_map) {
+                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                    intent.putParcelableArrayListExtra(MapsActivity.ALLIED, Allied);
+                    intent.putParcelableArrayListExtra(MapsActivity.AXIS, Axis);
+                    startActivity(intent);
+                } else if (tabId == R.id.tab_recent) {
+
+                } else if (tabId == R.id.tab_home) {
+
+                }
+            }
+        });
         // Set the adapter
         // preparing list data
         prepareListData();
@@ -241,15 +257,6 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
                             dataBaseController.insertAoCpList(aos);
                             listAdapter.notifyDataSetChanged();
                             //
-                            openLocation.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                                    intent.putParcelableArrayListExtra(MapsActivity.ALLIED, Allied);
-                                    intent.putParcelableArrayListExtra(MapsActivity.AXIS, Axis);
-                                    startActivity(intent);
-                                }
-                            });
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -406,6 +413,8 @@ public class MainActivity extends ShooterAppCompactActivity implements Expandabl
     protected void onResume() {
         super.onResume();
         overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        bottomBar.selectTabAtPosition(0);
+
     }
 
     @Override

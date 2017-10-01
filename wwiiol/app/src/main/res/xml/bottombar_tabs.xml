@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_home_black_24dp"
+        id="@+id/tab_home"
+        title="Home" />
+    <tab
+        icon="@drawable/ic_flag_black_24dp"
+        id="@+id/tab_recent"
+        title="Recent" />
+    <tab
+        icon="@drawable/ic_map_black_24dp"
+        id="@+id/tab_map"
+        title="Map" />
+</tabs>

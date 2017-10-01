@@ -8,7 +8,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Xml;
 import android.view.Menu;
@@ -43,13 +42,14 @@ import archer.handietalkie.adapters.CaptureAdapter;
 import archer.handietalkie.database.DataBaseController;
 import archer.handietalkie.models.CaptureModel;
 import archer.handietalkie.models.CpModel;
+import archer.handietalkie.utilities.RecyclerViewEmptySupport;
 
 public class CityActivity extends AppCompatActivity {
 
     public static final String CITY_NAME = "name";
     public static final String CITY_ID = "cityid";
     public static final String CITY_OWN = "cityOwn";
-    private RecyclerView mRecyclerView;
+    private RecyclerViewEmptySupport mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private ArrayList<CaptureModel> myDataset;
     private CaptureAdapter mAdapter;
@@ -62,7 +62,6 @@ public class CityActivity extends AppCompatActivity {
     private ImageView statusImageOrigin, statusImageOwn;
     private int cityOwn;
     private Handler myhandler;
-    private Snackbar snackbar;
     private Timer myTimer;
 
 
@@ -70,20 +69,20 @@ public class CityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city);
-        mRecyclerView = (RecyclerView) findViewById(R.id.list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         //
-        status = (TextView) findViewById(R.id.status);
-        statusImageOrigin = (ImageView) findViewById(R.id.status_image_origin);
-        statusImageOwn = (ImageView) findViewById(R.id.status_image_own);
-
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.CoordinatorLayout);
-        loading = (LinearLayout) findViewById(R.id.loading);
+        status = findViewById(R.id.status);
+        statusImageOrigin = findViewById(R.id.status_image_origin);
+        statusImageOwn = findViewById(R.id.status_image_own);
+        coordinatorLayout = findViewById(R.id.CoordinatorLayout);
+        loading = findViewById(R.id.loading);
+        mRecyclerView = findViewById(R.id.list);
+        mRecyclerView.setEmptyView(findViewById(R.id.list_empty));
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -129,8 +128,6 @@ public class CityActivity extends AppCompatActivity {
             @Override
             public boolean handleMessage(Message msg) {
                 getCurrentAo();
-                snackbar = Snackbar.make(coordinatorLayout, "Updating", Snackbar.LENGTH_INDEFINITE);
-                snackbar.show();
                 return false;
             }
         });
@@ -187,8 +184,7 @@ public class CityActivity extends AppCompatActivity {
                         }
                         loading.setVisibility(View.INVISIBLE);
                         getSupportActionBar().setSubtitle(new java.util.Date().toString());
-                        if (snackbar != null)
-                            snackbar.dismiss();
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -196,8 +192,7 @@ public class CityActivity extends AppCompatActivity {
                 Snackbar.make(coordinatorLayout, error.toString(), Snackbar.LENGTH_LONG).show();
                 loading.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setSubtitle(new java.util.Date().toString());
-                if (snackbar != null)
-                    snackbar.dismiss();
+
             }
         });
 

@@ -82,4 +82,6 @@
     <string name="pref_title_sync_side">Play Side</string>
     <string name="action_city_status">city status</string>
     <string name="title_activity_maps">Map</string>
+    <string name="version">Version:</string>
+    <string name="prepare_for_first_time">Prepare application for first time.</string>
 </resources>

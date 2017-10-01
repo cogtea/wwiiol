@@ -51,18 +51,19 @@ MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.17] /Users/Ramy/.a
 MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/Ramy/.android/build-cache/10b4e580d319e87b9f8e136c02914fe6147aac53/output/AndroidManifest.xml:11:5-20
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/Ramy/.android/build-cache/e42b09ea44bb3daf98e35116adbcad051c6fe8f2/output/AndroidManifest.xml:31:5-20
 MERGED from [com.android.volley:volley:1.0.0] /Users/Ramy/.android/build-cache/f6788003ef65de5038c92cb9fd99ac7599ee94d1/output/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Ramy/.android/build-cache/64163fdec725e4d8fed442d4b920998db9274926/output/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/b384cadc3efc55504ada1342f9f92c1dbeac7666/output/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/bd7a5cf372918acb082ea733c586af8c34c035b6/output/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Ramy/.android/build-cache/7cb3744a9a60526406fab568e68fd5d5a40945c5/output/AndroidManifest.xml:22:5-26:19
 MERGED from [com.gardencoder.shooter:shooter:1.0.0] /Users/Ramy/.android/build-cache/3b8fcf7d895132f4addabff00839540ba0f2181c/output/AndroidManifest.xml:11:5-21:19
 MERGED from [com.google.android.gms:play-services-maps:11.0.4] /Users/Ramy/.android/build-cache/4c92b1378ceebb0fc9f3970e2967631dbd5250c5/output/AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-base:11.0.4] /Users/Ramy/.android/build-cache/0676e871170e7ebf8eec9bc37dc19bbd2b0a3fda/output/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /Users/Ramy/.android/build-cache/8cfa102298f4a6820c8c324f71342bd8aa3c2e5f/output/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:11.0.4] /Users/Ramy/.android/build-cache/d17b260f8064a884ad2ebb155defba556dab8f20/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/Ramy/.android/build-cache/39396b5e3fc708f0171359305abf2bee161cc39c/output/AndroidManifest.xml:7:5-11:19
+MERGED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Ramy/.android/build-cache/64163fdec725e4d8fed442d4b920998db9274926/output/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/b384cadc3efc55504ada1342f9f92c1dbeac7666/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/bd7a5cf372918acb082ea733c586af8c34c035b6/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Ramy/.android/build-cache/7cb3744a9a60526406fab568e68fd5d5a40945c5/output/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-v4:26.1.0] /Users/Ramy/.android/build-cache/d682d450772912aa89884f288d4c31f4f5488a35/output/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Ramy/.android/build-cache/e16663cbcdf747fd663d67e78ba8c813064912df/output/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/Ramy/.android/build-cache/8862c5c9135340e6cf8c9d77929de6b22bd67d27/output/AndroidManifest.xml:25:5-29:19
@@ -70,7 +71,6 @@ MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Ramy/.android/bu
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Ramy/.android/build-cache/be6e53ae20987c43eaaee34e8a6b46a20cf094ab/output/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:26.1.0] /Users/Ramy/.android/build-cache/91d539263e6bca4850284fd5a3e5a6796230cbf0/output/AndroidManifest.xml:25:5-29:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Ramy/.android/build-cache/eb54faf9964d1ea10870c17d51546690b61ec50a/output/AndroidManifest.xml:24:5-28:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/Ramy/.android/build-cache/39396b5e3fc708f0171359305abf2bee161cc39c/output/AndroidManifest.xml:7:5-11:19
 	android:label
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:22:9-41
 	android:supportsRtl
@@ -142,7 +142,7 @@ ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:52
 	android:parentActivityName
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:55:13-55
 	android:theme
-		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:56:13-45
+		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:56:13-54
 	android:name
 		ADDED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml:53:13-51
 service#archer.handietalkie.components.sync.AuthenticatorService
@@ -233,18 +233,20 @@ MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.17] /Users/Ramy/.a
 MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/Ramy/.android/build-cache/10b4e580d319e87b9f8e136c02914fe6147aac53/output/AndroidManifest.xml:7:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/Ramy/.android/build-cache/e42b09ea44bb3daf98e35116adbcad051c6fe8f2/output/AndroidManifest.xml:27:5-43
 MERGED from [com.android.volley:volley:1.0.0] /Users/Ramy/.android/build-cache/f6788003ef65de5038c92cb9fd99ac7599ee94d1/output/AndroidManifest.xml:7:5-43
-MERGED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Ramy/.android/build-cache/64163fdec725e4d8fed442d4b920998db9274926/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/b384cadc3efc55504ada1342f9f92c1dbeac7666/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/bd7a5cf372918acb082ea733c586af8c34c035b6/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Ramy/.android/build-cache/7cb3744a9a60526406fab568e68fd5d5a40945c5/output/AndroidManifest.xml:20:5-44
 MERGED from [com.gardencoder.shooter:shooter:1.0.0] /Users/Ramy/.android/build-cache/3b8fcf7d895132f4addabff00839540ba0f2181c/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-maps:11.0.4] /Users/Ramy/.android/build-cache/4c92b1378ceebb0fc9f3970e2967631dbd5250c5/output/AndroidManifest.xml:23:5-43
 MERGED from [com.google.android.gms:play-services-base:11.0.4] /Users/Ramy/.android/build-cache/0676e871170e7ebf8eec9bc37dc19bbd2b0a3fda/output/AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /Users/Ramy/.android/build-cache/8cfa102298f4a6820c8c324f71342bd8aa3c2e5f/output/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:11.0.4] /Users/Ramy/.android/build-cache/d17b260f8064a884ad2ebb155defba556dab8f20/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/Ramy/.android/build-cache/39396b5e3fc708f0171359305abf2bee161cc39c/output/AndroidManifest.xml:5:5-43
+MERGED from [com.roughike:bottom-bar:2.3.1] /Users/Ramy/.android/build-cache/42fc58722b389d51f0330a96cfea914e6addf575/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Ramy/.android/build-cache/64163fdec725e4d8fed442d4b920998db9274926/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/b384cadc3efc55504ada1342f9f92c1dbeac7666/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/bd7a5cf372918acb082ea733c586af8c34c035b6/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Ramy/.android/build-cache/7cb3744a9a60526406fab568e68fd5d5a40945c5/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.1.0] /Users/Ramy/.android/build-cache/d682d450772912aa89884f288d4c31f4f5488a35/output/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Ramy/.android/build-cache/e16663cbcdf747fd663d67e78ba8c813064912df/output/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/Ramy/.android/build-cache/8862c5c9135340e6cf8c9d77929de6b22bd67d27/output/AndroidManifest.xml:21:5-23:60
@@ -252,7 +254,6 @@ MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Ramy/.android/bu
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Ramy/.android/build-cache/be6e53ae20987c43eaaee34e8a6b46a20cf094ab/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:26.1.0] /Users/Ramy/.android/build-cache/91d539263e6bca4850284fd5a3e5a6796230cbf0/output/AndroidManifest.xml:21:5-23:58
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Ramy/.android/build-cache/eb54faf9964d1ea10870c17d51546690b61ec50a/output/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/Ramy/.android/build-cache/39396b5e3fc708f0171359305abf2bee161cc39c/output/AndroidManifest.xml:5:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -262,13 +263,13 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/Ramy/.androi
 		INJECTED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Ramy/Desktop/wwiiol/wwiiol/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:26:9-28:38
+ADDED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Ramy/.android/build-cache/64163fdec725e4d8fed442d4b920998db9274926/output/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/b384cadc3efc55504ada1342f9f92c1dbeac7666/output/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Ramy/.android/build-cache/bd7a5cf372918acb082ea733c586af8c34c035b6/output/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Ramy/.android/build-cache/7cb3744a9a60526406fab568e68fd5d5a40945c5/output/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] /Users/Ramy/.android/build-cache/a99c7338959b12ec4ff8ddcb5a15ea0a697ee95d/output/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-v4:26.1.0] /Users/Ramy/.android/build-cache/d682d450772912aa89884f288d4c31f4f5488a35/output/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Ramy/.android/build-cache/e16663cbcdf747fd663d67e78ba8c813064912df/output/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/Ramy/.android/build-cache/8862c5c9135340e6cf8c9d77929de6b22bd67d27/output/AndroidManifest.xml:26:9-28:38
@@ -276,9 +277,9 @@ MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Ramy/.android/bu
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Ramy/.android/build-cache/be6e53ae20987c43eaaee34e8a6b46a20cf094ab/output/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-compat:26.1.0] /Users/Ramy/.android/build-cache/91d539263e6bca4850284fd5a3e5a6796230cbf0/output/AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:28:13-35
+		ADDED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:25:13-35
 	android:name
-		ADDED from [com.android.support:design:26.1.0] /Users/Ramy/.android/build-cache/51fd4ea0b6199721cdd1a3821c4e41342d8f55d1/output/AndroidManifest.xml:27:13-51
+		ADDED from [com.android.support:cardview-v7:26.1.0] /Users/Ramy/.android/build-cache/581e9567a84029a572e56eba1142694086082d22/output/AndroidManifest.xml:24:13-51
 activity#com.gardencoder.shooter.board.ShooterDrawingActivity
 ADDED from [com.gardencoder.shooter:shooter:1.0.0] /Users/Ramy/.android/build-cache/3b8fcf7d895132f4addabff00839540ba0f2181c/output/AndroidManifest.xml:15:9-17:59
 	android:theme
